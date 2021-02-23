@@ -23,9 +23,6 @@ export default new Vuex.Store({
         info: state.inputValue.trim(),
         done: false
       }
-      if (obj.info.length <= 0) {
-        return alert('请输入内容')
-      }
       state.list.push(obj)
       state.nextId++
       state.inputValue = ''

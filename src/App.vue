@@ -48,6 +48,9 @@ export default {
       this.$store.commit('setInputValue', e.target.value)
     },
     addItemToList() {
+      if (this.inputValue.trim().length <= 0) {
+        return this.$message.warning('内容不能为空')
+      }
       this.$store.commit('addItem')
     },
     removeItemById(id) {

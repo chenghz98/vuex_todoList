@@ -32,6 +32,11 @@ export default new Vuex.Store({
       if (i !== -1) {
         state.list.splice(i, 1)
       }
+    },
+    changeStatus(state, param) {
+      // 根据id改变对应事项的状态
+      const index = state.list.findIndex(x => x.id === param.id)
+      if (index !== -1) state.list[index].done = param.status
     }
   },
   actions: {
@@ -41,6 +46,5 @@ export default new Vuex.Store({
       context.commit('initList', data)
     }
   },
-  modules: {
-  }
+  modules: {}
 })
